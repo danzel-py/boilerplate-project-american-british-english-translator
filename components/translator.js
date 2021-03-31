@@ -86,7 +86,7 @@ class Translator {
 
     britishToAmerican(text) {
         let rege = /[A-z]|[<]|[>]/
-        let newText = text.toLowerCase()
+        let newText = text
         while (true) {
             let dummy = newText
             for (const [key, value] of Object.entries(britishOnly)) {
