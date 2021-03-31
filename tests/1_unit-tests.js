@@ -29,15 +29,47 @@ suite('Unit Tests', () => {
             `Can you toss this in the <span class = 'highlight'>bin</span> for me?`
         )
     })
+    test('Translate The parking lot was full. to British English',()=>{
+        assert.equal(
+            translator.americanToBritish('The parking lot was full.'),
+            `The <span class = 'highlight'>car park</span> was full.`
+        )
+    })
+    test('Translate Like a high tech Rube Goldberg machine. to British English',()=>{
+        assert.equal(
+            translator.americanToBritish('Like a high tech Rube Goldberg machine.'),
+            `Like a high tech <span class = 'highlight'>Heath Robinson device</span>.`
+        )
+    })
+    test('Translate To play hooky means to skip class or work. to British English',()=>{
+        assert.equal(
+            translator.americanToBritish('To play hooky means to skip class or work.'),
+            `To <span class = 'highlight'>bunk off</span> means to skip class or work.`
+        )
+    })
+      test('Translate No Mr. Bond, I expect you to die. to British English',()=>{
+        assert.equal(
+            translator.americanToBritish('No Mr. Bond, I expect you to die.'),
+            `No <span class = 'highlight'>Mr</span> Bond, I expect you to die.`
+        )
+    })  
+     test('Translate Dr. Grosh will see you now. to British English',()=>{
+        assert.equal(
+            translator.americanToBritish('Dr. Grosh will see you now.'),
+            `<span class = 'highlight'>Dr</span> Grosh will see you now.`
+        )
+    }) 
+    test('Translate Lunch is at 12:15 today. to British English',()=>{
+        assert.equal(
+            translator.americanToBritish('Lunch is at 12:15 today.'),
+            `Lunch is at <span class = 'highlight'>12.15</span> today.`
+        )
+    })
+
 });
 
 /*
-Translate The parking lot was full. to British English
-Translate Like a high tech Rube Goldberg machine. to British English
-Translate To play hooky means to skip class or work. to British English
-Translate No Mr. Bond, I expect you to die. to British English
-Translate Dr. Grosh will see you now. to British English
-Translate Lunch is at 12:15 today. to British English
+
 Translate We watched the footie match for a while. to American English
 Translate Paracetamol takes up to an hour to work. to American English
 Translate First, caramelise the onions. to American English
