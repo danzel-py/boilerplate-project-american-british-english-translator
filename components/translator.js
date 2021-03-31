@@ -5,7 +5,7 @@ const britishOnly = require('./british-only.js')
 
 /*
 
-<script>
+
 tos = tosearch, top = toplace
 var tos = 'W3Schools';
 var str = "Visit W3Schools!"; 
@@ -13,7 +13,6 @@ var n = str.search(tos);
 var top = 'MY HOUEs'
 let lol = str.slice(0,n)+top+str.slice(n+tos.length)
 document.getElementById("demo").innerHTML = lol;
-</script>
 */
 
 class Translator {
@@ -21,21 +20,21 @@ class Translator {
         let newText = text
         for (const [key, value] of Object.entries(americanOnly)) {
             let toSearch = key
-            let toPlace = value
+            let toPlace = `<span class = \'highlight\'>${value}</span>`
             let index = newText.search(toSearch)
             if (index < 0) continue // not found, go next iteration
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
         }
         for (const [key, value] of Object.entries(americanToBritishSpelling)) {
             let toSearch = key
-            let toPlace = value
+            let toPlace = `<span class = \'highlight\'>${value}</span>`
             let index = newText.search(toSearch)
             if (index < 0) continue // not found, go next iteration
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
         }
         for (const [key, value] of Object.entries(americanToBritishTitles)) {
             let toSearch = key
-            let toPlace = value
+            let toPlace = `<span class = \'highlight\'>${value}</span>`
             let index = newText.search(toSearch)
             if (index < 0) continue // not found, go next iteration
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
@@ -46,7 +45,7 @@ class Translator {
         if (found.length < 1) return (newText) // not found, do nothing
         found.forEach(clock => {
             let toSearch = clock
-            let toPlace = clock.replace(':', '.')
+            let toPlace = `<span class = \'highlight\'>${clock.replace(':', '.')}</span>`
             let index = newText.search(toSearch)
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
         })
@@ -57,21 +56,21 @@ class Translator {
         let newText = text
         for (const [key, value] of Object.entries(britishOnly)) {
             let toSearch = key
-            let toPlace = value
+            let toPlace = `<span class = \'highlight\'>${value}</span>`
             let index = newText.search(toSearch)
             if (index < 0) continue // not found, next iteration
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
         }
         for (const [key, value] of Object.entries(americanToBritishSpelling)) {
             let toSearch = value
-            let toPlace = key
+            let toPlace = `<span class = \'highlight\'>${key}</span>`
             let index = newText.search(toSearch)
             if (index < 0) continue // not found, next iteration
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
         }
         for (const [key, value] of Object.entries(americanToBritishTitles)) {
             let toSearch = value
-            let toPlace = key
+            let toPlace = `<span class = \'highlight\'>${key}</span>`
             let index = newText.search(toSearch)
             if (index < 0) continue // not found, next iteration
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
@@ -82,7 +81,7 @@ class Translator {
         if (found.length < 1) return (newText) // not found, do nothing
         found.forEach(clock => {
             let toSearch = clock
-            let toPlace = clock.replace('.', ':')
+            let toPlace = `<span class = \'highlight\'>${clock.replace('.', ':')}</span>`
             let index = newText.search(toSearch)
             newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
         })
