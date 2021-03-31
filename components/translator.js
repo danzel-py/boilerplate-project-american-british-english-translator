@@ -17,30 +17,38 @@ document.getElementById("demo").innerHTML = lol;
 
 class Translator {
     americanToBritish(text) {
-        let regex = /[^a-z]/
-        let newText = text.toLowerCase()
+        let rege = /[A-z]/
+        let newText = text
         while (true) {
             let dummy = newText
             for (const [key, value] of Object.entries(americanOnly)) {
                 let toSearch = key
                 let toPlace = `<span class = 'highlight'>${value}</span>`
-                let index = newText.search(toSearch)
+                let textLow = newText.toLowerCase()
+                let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, go next iteration
-                if (newText[index-1])
+                if (rege.test(newText[index-1])) continue
+                if (rege.test(newText[index+toSearch.length])) continue
                 newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
             }
             for (const [key, value] of Object.entries(americanToBritishSpelling)) {
                 let toSearch = key
                 let toPlace = `<span class = 'highlight'>${value}</span>`
-                let index = newText.search(toSearch)
+                let textLow = newText.toLowerCase()
+                let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, go next iteration
+                if (rege.test(newText[index-1])) continue
+                if (rege.test(newText[index+toSearch.length])) continue
                 newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
             }
             for (const [key, value] of Object.entries(americanToBritishTitles)) {
                 let toSearch = key
                 let toPlace = `<span class = 'highlight'>${value}</span>`
-                let index = newText.search(toSearch)
+                let textLow = newText.toLowerCase()
+                let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, go next iteration
+                if (rege.test(newText[index-1])) continue
+                if (rege.test(newText[index+toSearch.length])) continue
                 newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
             }
             // replace 12:15 to 12.15
@@ -70,22 +78,31 @@ class Translator {
             for (const [key, value] of Object.entries(britishOnly)) {
                 let toSearch = key
                 let toPlace = `<span class = 'highlight'>${value}</span>`
-                let index = newText.search(toSearch)
+                let textLow = newText.toLowerCase()
+                let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, next iteration
+                if (rege.test(newText[index-1])) continue
+                if (rege.test(newText[index+toSearch.length])) continue
                 newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
             }
             for (const [key, value] of Object.entries(americanToBritishSpelling)) {
                 let toSearch = value
                 let toPlace = `<span class = 'highlight'>${key}</span>`
-                let index = newText.search(toSearch)
+                let textLow = newText.toLowerCase()
+                let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, next iteration
+                if (rege.test(newText[index-1])) continue
+                if (rege.test(newText[index+toSearch.length])) continue
                 newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
             }
             for (const [key, value] of Object.entries(americanToBritishTitles)) {
                 let toSearch = value
                 let toPlace = `<span class = 'highlight'>${key}</span>`
-                let index = newText.search(toSearch)
+                let textLow = newText.toLowerCase()
+                let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, next iteration
+                if (rege.test(newText[index-1])) continue
+                if (rege.test(newText[index+toSearch.length])) continue
                 newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
             }
             // Replace 12.15 to 12:15
