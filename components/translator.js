@@ -23,7 +23,7 @@ class Translator {
             let dummy = newText
             for (const [key, value] of Object.entries(americanOnly)) {
                 let toSearch = key
-                let toPlace = `<span class = 'highlight'>${value}</span>`
+                let toPlace = `<span class='highlight'>${value}</span>`
                 let textLow = newText.toLowerCase()
                 let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, go next iteration
@@ -37,7 +37,7 @@ class Translator {
             }
             for (const [key, value] of Object.entries(americanToBritishSpelling)) {
                 let toSearch = key
-                let toPlace = `<span class = 'highlight'>${value}</span>`
+                let toPlace = `<span class='highlight'>${value}</span>`
                 let textLow = newText.toLowerCase()
                 let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, go next iteration
@@ -51,7 +51,7 @@ class Translator {
             for (const [key, value] of Object.entries(americanToBritishTitles)) {
                 let toSearch = key
                 value = value.charAt(0).toUpperCase() + value.slice(1)
-                let toPlace = `<span class = 'highlight'>${value}</span>`
+                let toPlace = `<span class='highlight'>${value}</span>`
                 let textLow = newText.toLowerCase()
                 let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, go next iteration
@@ -68,7 +68,7 @@ class Translator {
             if (found) { // not found, do nothing
                 found.forEach(clock => {
                     let toSearch = clock
-                    let toPlace = `<span class = 'highlight'>${clock.replace(':', '.')}</span>`
+                    let toPlace = `<span class='highlight'>${clock.replace(':', '.')}</span>`
                     let index = newText.search(toSearch)
                     newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
                 })
@@ -91,7 +91,7 @@ class Translator {
             let dummy = newText
             for (const [key, value] of Object.entries(britishOnly)) {
                 let toSearch = key
-                let toPlace = `<span class = 'highlight'>${value}</span>`
+                let toPlace = `<span class='highlight'>${value}</span>`
                 let textLow = newText.toLowerCase()
                 let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, next iteration
@@ -104,7 +104,7 @@ class Translator {
             }
             for (const [key, value] of Object.entries(americanToBritishSpelling)) {
                 let toSearch = value
-                let toPlace = `<span class = 'highlight'>${key}</span>`
+                let toPlace = `<span class='highlight'>${key}</span>`
                 let textLow = newText.toLowerCase()
                 let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, next iteration
@@ -118,7 +118,7 @@ class Translator {
             for (const [key, value] of Object.entries(americanToBritishTitles)) {
                 let toSearch = value
                 key = key.charAt(0).toUpperCase() + key.slice(1)
-                let toPlace = `<span class = 'highlight'>${key}</span>`
+                let toPlace = `<span class='highlight'>${key}</span>`
                 let textLow = newText.toLowerCase()
                 let index = textLow.search(toSearch)
                 if (index < 0) continue // not found, next iteration
@@ -136,7 +136,7 @@ class Translator {
             if (found) { // not found, do nothing
                 found.forEach(clock => {
                     let toSearch = clock
-                    let toPlace = `<span class = 'highlight'>${clock.replace('.', ':')}</span>`
+                    let toPlace = `<span class='highlight'>${clock.replace('.', ':')}</span>`
                     let index = newText.search(toSearch)
                     newText = newText.slice(0, index) + toPlace + newText.slice(index + toSearch.length)
                 })

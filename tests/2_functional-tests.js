@@ -21,7 +21,7 @@ suite('Functional Tests', () => {
                 assert.property(res.body, 'text')
                 assert.property(res.body, 'translation')
                 assert.equal(res.body.text, "Dr Bro! Have you seen Mrs Kalyani's estate car? We're supposed to leave at 3.45 you know.")
-                assert.equal(res.body.translation, "<span class = 'highlight'>Dr.</span> Bro! Have you seen <span class = 'highlight'>Mrs.</span> Kalyani's <span class = 'highlight'>station wagon</span>? We're supposed to leave at <span class = 'highlight'>3:45</span> you know.")
+                assert.equal(res.body.translation, "<span class='highlight'>Dr.</span> Bro! Have you seen <span class='highlight'>Mrs.</span> Kalyani's <span class='highlight'>station wagon</span>? We're supposed to leave at <span class='highlight'>3:45</span> you know.")
             })
     })
     test('Translation with text and invalid locale field: POST request to /api/translate',()=>{
